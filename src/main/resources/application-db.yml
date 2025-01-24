@@ -1,0 +1,38 @@
+spring:
+  datasource:
+    url: jdbc:mariadb://192.168.10.43:3307/test_for_dynamic
+    username: emfo
+    password: emfo!@0717
+    driver-class-name: org.mariadb.jdbc.Driver
+  hikari:
+    max-lifetime: 15000       # 5분
+    idle-timeout: 30000        # 30초
+    connection-timeout: 30000  # 30초
+    validation-timeout: 5000   # 5초
+  jpa:
+    hibernate:
+      naming:
+        physical-strategy: jpa.test.domain.db.DynamicTableNaming
+      ddl-auto: update
+    show-sql: true
+
+server:
+  check: false
+  db:
+    tbl_name: test_table
+    col_name: col_fir, col_sec, col_thi
+    type: VARCHAR(100), VARCHAR(10), INT
+  month: true
+
+
+
+### MariaDB
+# url : jdbc:mariadb://{DB 서버 주소}:{Port 번호}/{DB 이름}
+# username : DB user명
+# password : DB user의 password
+# driver-class-name: org.mariadb.jdbc.Driver
+
+
+
+
+
